@@ -33,11 +33,15 @@ public class D3NetworkWriter extends AbstractNetworkTask implements CyWriter {
 	@Override
 	public void run(TaskMonitor taskMonitor) throws Exception {
 		if (taskMonitor != null) {
-			taskMonitor.setTitle("Writing to JSON...");
+			taskMonitor.setTitle("Writing to D3.js style JSON...");
 			taskMonitor.setProgress(0);
 		}
 		network2jsonMapper.writeValue(outputStream, network);
 		outputStream.close();
+		
+		if (taskMonitor != null) {
+			taskMonitor.setTitle("Success.");
+			taskMonitor.setProgress(1.0);
+		}
 	}
-
 }
