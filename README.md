@@ -1,6 +1,12 @@
 cytoscape-d3
 ============
 
-D3.js support App for Cytoscape 3.
+## What is this for?
+This is a Cytoscape 3 App for exporting network and table data in D3.js network format.
 
-This App is designed for Cytoscape 3.1.0 or later.
+Currently, this app supports:
+
+* Network JSON for force layout
+* Tree JSON
+
+For Tree data, you need to select root node manually (simply click the root node before exporting).
