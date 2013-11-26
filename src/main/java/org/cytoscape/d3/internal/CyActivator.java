@@ -4,19 +4,13 @@ import static org.cytoscape.work.ServiceProperties.ID;
 
 import java.util.Properties;
 
-import org.cytoscape.application.CyApplicationManager;
 import org.cytoscape.d3.internal.serializer.D3TreeModule;
 import org.cytoscape.d3.internal.serializer.D3jsModule;
 import org.cytoscape.d3.internal.writer.D3NetworkWriterFactory;
 import org.cytoscape.io.BasicCyFileFilter;
 import org.cytoscape.io.DataCategory;
-import org.cytoscape.io.read.InputStreamTaskFactory;
 import org.cytoscape.io.util.StreamUtil;
-import org.cytoscape.model.CyNetworkFactory;
-import org.cytoscape.model.CyNetworkManager;
-import org.cytoscape.model.subnetwork.CyRootNetworkManager;
 import org.cytoscape.service.util.AbstractCyActivator;
-import org.cytoscape.view.model.CyNetworkViewFactory;
 import org.osgi.framework.BundleContext;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
