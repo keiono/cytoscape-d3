@@ -18,18 +18,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * Writer for all JSON format. Output format will be determined by ObjectMapper.
  * 
  */
-public final class JSONNetworkViewWriter extends AbstractNetworkViewTask implements CyWriter {
-	
-	private static final String ENCODING = "UTF-8";
-	
-	private static final Logger logger = LoggerFactory.getLogger(JSONNetworkWriter.class);
+public final class D3NetworkViewWriter extends AbstractNetworkViewTask implements CyWriter {
 
-	final OutputStream outputStream;
-	
-	protected final CharsetEncoder encoder;
-	protected final ObjectMapper networkView2jsonMapper;
+	private final OutputStream outputStream;
+	private final ObjectMapper networkView2jsonMapper;
 
-	public JSONNetworkViewWriter(final OutputStream outputStream, final CyNetworkView networkView,
+	public D3NetworkViewWriter(final OutputStream outputStream, final CyNetworkView networkView,
 			final ObjectMapper networkView2jsonMapper) {
 		super(networkView);
 
@@ -41,24 +35,20 @@ public final class JSONNetworkViewWriter extends AbstractNetworkViewTask impleme
 		
 		this.outputStream = outputStream;
 		this.networkView2jsonMapper = networkView2jsonMapper;
-		
-		if(Charset.isSupported(ENCODING)) {
-			// UTF-8 is supported by system
-			this.encoder = Charset.forName(ENCODING).newEncoder();
-		} else {
-			// Use default.
-			logger.warn("UTF-8 is not supported by this system.  This can be a problem for non-Roman annotations.");
-			this.encoder = Charset.defaultCharset().newEncoder();
-		}
 	}
 
 	@Override
 	public void run(TaskMonitor taskMonitor) throws Exception {
 		if (taskMonitor != null) {
-			taskMonitor.setTitle("Writing Network View to JSON...");
+			taskMonitor.setTitle("Writing Network View to D3.js Style JSON...");
 			taskMonitor.setProgress(0);
 		}
-		networkView2jsonMapper.writeValue(new OutputStreamWriter(outputStream, encoder), view);
+		networkView2jsonMapper.writeValue(new OutputStreamWriter(outputStream, EncodingUtil.getEncoder()), view);
 		outputStream.close();
+		
+		if (taskMonitor != null) {
+			taskMonitor.setStatusMessage("Success.");
+			taskMonitor.setProgress(1.0);
+		}
 	}
 }

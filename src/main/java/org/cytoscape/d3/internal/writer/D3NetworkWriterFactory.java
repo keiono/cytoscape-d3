@@ -10,24 +10,29 @@ import org.cytoscape.view.model.CyNetworkView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class JSONNetworkWriterFactory implements CyNetworkViewWriterFactory {
+/**
+ * Create Writers for given data type (View or Network)
+ * 
+ */
+public class D3NetworkWriterFactory implements CyNetworkViewWriterFactory {
 	
 	private final CyFileFilter filter;
+
 	private final ObjectMapper mapper;
 
-	public JSONNetworkWriterFactory(final CyFileFilter filter, final ObjectMapper mapper) {
+	public D3NetworkWriterFactory(final CyFileFilter filter, final ObjectMapper mapper) {
 		this.filter = filter;
 		this.mapper = mapper;
 	}
 
 	@Override
 	public CyWriter createWriter(OutputStream outputStream, CyNetworkView view) {
-		return new JSONNetworkViewWriter(outputStream, view, mapper);
+		return new D3NetworkViewWriter(outputStream, view, mapper);
 	}
 
 	@Override
 	public CyWriter createWriter(OutputStream outputStream, CyNetwork network) {
-		return new JSONNetworkWriter(outputStream, network, mapper);
+		return new D3NetworkWriter(outputStream, network, mapper);
 	}
 
 	@Override
