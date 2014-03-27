@@ -4,17 +4,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 	<properties>
-		<bundle.symbolicName>org.cytoscape.d3-support</bundle.symbolicName>
+		<bundle.symbolicName>org.cytoscape.d3js-exporter</bundle.symbolicName>
 		<bundle.namespace>org.cytoscape.d3</bundle.namespace>
-		<cytoscape.api.version>[3.0.2-SNAPSHOT,3.2.0)</cytoscape.api.version>
+		<cytoscape.api.version>3.1.0</cytoscape.api.version>
 	</properties>
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.cytoscape</groupId>
-	<artifactId>d3-support</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<artifactId>d3js-exporter</artifactId>
+	<version>1.0.0</version>
 
-	<name>${bundle.symbolicName} [${bundle.namespace}]</name>
+	<name>D3.js Exporter</name>
 
 	<packaging>bundle</packaging>
 
