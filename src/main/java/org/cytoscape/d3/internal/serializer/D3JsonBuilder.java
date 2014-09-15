@@ -8,6 +8,9 @@ import java.util.Map;
 import org.cytoscape.model.CyEdge;
 import org.cytoscape.model.CyNetwork;
 import org.cytoscape.model.CyNode;
+import org.cytoscape.view.model.CyNetworkView;
+import org.cytoscape.view.model.View;
+import org.cytoscape.view.presentation.property.BasicVisualLexicon;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -20,8 +23,10 @@ public class D3JsonBuilder {
 	private static final String SOURCE = "source";
 	private static final String TARGET= "target";
 	private static final String ID = "id";
+	private static final String X = "x";
+	private static final String Y = "y";
 
-	protected final void serializeNetwork(final CyNetwork network, JsonGenerator jgen, SerializerProvider provider)
+	protected final void serializeNetwork(final CyNetwork network, final CyNetworkView view, JsonGenerator jgen, SerializerProvider provider)
 			throws IOException, JsonProcessingException {
 
 		// Write array
@@ -40,6 +45,12 @@ public class D3JsonBuilder {
 			jgen.writeStartObject();
 
 			jgen.writeStringField(ID, node.getSUID().toString());
+			if(view != null) {
+				// View is available.  Pick (x,y)
+				final View<CyNode> nodeView = view.getNodeView(node);
+				jgen.writeNumberField(X, nodeView.getVisualProperty(BasicVisualLexicon.NODE_X_LOCATION));
+				jgen.writeNumberField(Y, nodeView.getVisualProperty(BasicVisualLexicon.NODE_Y_LOCATION));
+			}
 
 			// Write CyRow in "data" field
 			jgen.writeObject(network.getRow(node));

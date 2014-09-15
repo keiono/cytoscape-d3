@@ -15,7 +15,7 @@ public class D3CyNetworkSerializer extends JsonSerializer<CyNetwork> {
 	public void serialize(final CyNetwork network, JsonGenerator jgen, SerializerProvider provider)
 			throws IOException, JsonProcessingException {
 		final D3JsonBuilder builder = new D3JsonBuilder();
-		builder.serializeNetwork(network, jgen, provider);
+		builder.serializeNetwork(network, null, jgen, provider);
 	}
 
 	@Override

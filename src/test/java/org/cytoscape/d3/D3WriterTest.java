@@ -136,5 +136,8 @@ public class D3WriterTest {
 		assertTrue(nodes.isArray());
 		assertNotNull(edges);
 		assertTrue(edges.isArray());
+		
+		assertEquals(5, nodes.size());
+		assertEquals(4, edges.size());
 	}
 }

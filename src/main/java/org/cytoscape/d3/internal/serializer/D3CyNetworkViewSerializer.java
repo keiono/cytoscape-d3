@@ -19,7 +19,7 @@ public class D3CyNetworkViewSerializer extends JsonSerializer<CyNetworkView> {
 
 		final D3JsonBuilder builder = new D3JsonBuilder();
 		final CyNetwork network = networkView.getModel();
-		builder.serializeNetwork(network, jgen, provider);
+		builder.serializeNetwork(network, networkView, jgen, provider);
 	}
 
 

@@ -1,15 +1,12 @@
 package org.cytoscape.d3.internal.writer;
 
 import java.io.OutputStream;
-import java.nio.charset.Charset;
-import java.nio.charset.CharsetEncoder;
+import java.io.OutputStreamWriter;
 
 import org.cytoscape.io.write.CyWriter;
 import org.cytoscape.model.CyNetwork;
 import org.cytoscape.task.AbstractNetworkTask;
 import org.cytoscape.work.TaskMonitor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -33,14 +30,16 @@ public class D3NetworkWriter extends AbstractNetworkTask implements CyWriter {
 	@Override
 	public void run(TaskMonitor taskMonitor) throws Exception {
 		if (taskMonitor != null) {
-			taskMonitor.setTitle("Writing to D3.js style JSON...");
-			taskMonitor.setProgress(0);
+			taskMonitor.setTitle("Writing to D3-Style JSON");
+			taskMonitor.setStatusMessage("Writing network in D3.js format...");
+			taskMonitor.setProgress(-1.0);
 		}
-		network2jsonMapper.writeValue(outputStream, network);
+
+		network2jsonMapper.writeValue(new OutputStreamWriter(outputStream, EncodingUtil.getEncoder()), network);
 		outputStream.close();
-		
+
 		if (taskMonitor != null) {
-			taskMonitor.setTitle("Success.");
+			taskMonitor.setStatusMessage("Success.");
 			taskMonitor.setProgress(1.0);
 		}
 	}
