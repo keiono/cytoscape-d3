@@ -4,6 +4,7 @@
 ![](http://cl.ly/Xk5o/cytoscape-flat-logo-orange-100.png) ![](http://cl.ly/XkMY/d3logo.svg)
 
 ## Release history
+* 9/28/2014 - Version 1.0.2 released.  Minor fixes only (no new features).
 * 9/15/2014 - Version 1.0.1 released.  Node locations (x, y) will be added as node property when user select Network and View.
  
 
