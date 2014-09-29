@@ -56,7 +56,6 @@ public class D3CyNetworkViewTreeSerializer extends JsonSerializer<CyNetworkView>
 		expanded.add(node);
 		
 		final List<CyNode> children = network.getNeighborList(node, org.cytoscape.model.CyEdge.Type.ANY);
-		System.out.println("Children Count = " + children.size());
 		
 		jgen.writeStartObject();
 		jgen.writeStringField(CyNetwork.NAME, network.getRow(node).get(CyNetwork.NAME, String.class));
@@ -90,7 +89,6 @@ public class D3CyNetworkViewTreeSerializer extends JsonSerializer<CyNetworkView>
 			jgen.writeEndArray();
 			jgen.writeEndObject();
 		}
-		
 	}
 
 	@Override

@@ -31,7 +31,7 @@ public class CyActivator extends AbstractCyActivator {
 		// ///////////////// Writers ////////////////////////////
 		final ObjectMapper d3jsMapper = new ObjectMapper();
 		d3jsMapper.registerModule(new D3jsModule());
-		
+
 		final ObjectMapper d3jsTreeMapper = new ObjectMapper();
 		d3jsTreeMapper.registerModule(new D3TreeModule());
 
