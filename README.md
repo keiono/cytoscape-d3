@@ -3,6 +3,7 @@
 
 ![](http://cl.ly/Xk5o/cytoscape-flat-logo-orange-100.png) ![](http://cl.ly/XkMY/d3logo.svg)
 
+[![Build Status](https://travis-ci.org/keiono/cytoscape-d3.svg)](https://travis-ci.org/keiono/cytoscape-d3)
 [![Coverage Status](https://img.shields.io/coveralls/keiono/cytoscape-d3.svg)](https://coveralls.io/r/keiono/cytoscape-d3)
 
 ## Release history
