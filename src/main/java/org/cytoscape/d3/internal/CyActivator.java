@@ -38,7 +38,7 @@ public class CyActivator extends AbstractCyActivator {
 		final BasicCyFileFilter d3jsFilter = new BasicCyFileFilter(new String[] { "json" },
 				new String[] { "application/json" }, "JSON for D3.js Force Layout", DataCategory.NETWORK, streamUtil);
 		final BasicCyFileFilter d3jsTreeFilter = new BasicCyFileFilter(new String[] { "json" },
-				new String[] { "application/json" }, "JSON D3.js Tree", DataCategory.NETWORK, streamUtil);
+				new String[] { "application/json" }, "JSON for D3.js Tree", DataCategory.NETWORK, streamUtil);
 
 		// For D3.js Force layout
 		final D3NetworkWriterFactory d3jsWriterFactory = new D3NetworkWriterFactory(d3jsFilter, d3jsMapper);

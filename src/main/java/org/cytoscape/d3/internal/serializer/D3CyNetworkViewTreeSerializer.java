@@ -58,11 +58,9 @@ public class D3CyNetworkViewTreeSerializer extends JsonSerializer<CyNetworkView>
 		final List<CyNode> children = network.getNeighborList(node, org.cytoscape.model.CyEdge.Type.ANY);
 		
 		jgen.writeStartObject();
-		jgen.writeStringField(CyNetwork.NAME, network.getRow(node).get(CyNetwork.NAME, String.class));
 		// Write labels
 		CyRow row = network.getRow(node);
 		jgen.writeObject(row);
-		
 		
 		if(children.isEmpty()) {
 			// Leaf
