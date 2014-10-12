@@ -17,7 +17,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class D3NetworkWriterFactory implements CyNetworkViewWriterFactory {
 	
 	private final CyFileFilter filter;
-
 	private final ObjectMapper mapper;
 
 	public D3NetworkWriterFactory(final CyFileFilter filter, final ObjectMapper mapper) {
