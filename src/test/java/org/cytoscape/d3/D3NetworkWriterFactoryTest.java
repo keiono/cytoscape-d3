@@ -12,6 +12,7 @@ import org.cytoscape.d3.internal.writer.D3NetworkWriter;
 import org.cytoscape.d3.internal.writer.D3NetworkWriterFactory;
 import org.cytoscape.ding.NetworkViewTestSupport;
 import org.cytoscape.io.BasicCyFileFilter;
+import org.cytoscape.io.CyFileFilter;
 import org.cytoscape.io.DataCategory;
 import org.cytoscape.io.util.StreamUtil;
 import org.cytoscape.io.write.CyWriter;
@@ -50,6 +51,9 @@ public class D3NetworkWriterFactoryTest {
 		final CyWriter netViewWriter = factory.createWriter(os, support.getNetworkView());
 		assertNotNull(netViewWriter);
 		assertTrue(netViewWriter instanceof D3NetworkViewWriter);
+		
+		CyFileFilter ff = factory.getFileFilter();
+		assertEquals(filter, ff);
 	}
 
 }
