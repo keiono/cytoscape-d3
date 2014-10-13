@@ -10,7 +10,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.cytoscape.d3.internal.serializer.D3jsModule;
@@ -88,6 +90,16 @@ public class D3WriterTest {
 		network1.getRow(n3).set(CyNetwork.NAME, "n3");
 		network1.getRow(n4).set(CyNetwork.NAME, "n4: Alone");
 		network1.getRow(n5).set(CyNetwork.NAME, "n5");
+		
+		network1.getDefaultNodeTable().createColumn("DoubleTest", Double.class, false);
+		network1.getDefaultNodeTable().createColumn("IntTest", Integer.class, false);
+		network1.getDefaultNodeTable().createListColumn("StringListTest", String.class, false);
+		network1.getRow(n1).set("DoubleTest", 10.2d);
+		network1.getRow(n1).set("IntTest", 3);
+		List<String> list = new ArrayList<String>();
+		list.add("a");
+		list.add("b");
+		network1.getRow(n1).set("StringListTest", list);
 
 		network1.getRow(e1).set(CyNetwork.NAME, "e1");
 		network1.getRow(e2).set(CyNetwork.NAME, "エッジ2");
@@ -154,5 +166,6 @@ public class D3WriterTest {
 		
 		assertEquals(5, nodes.size());
 		assertEquals(4, edges.size());
+		
 	}
 }
