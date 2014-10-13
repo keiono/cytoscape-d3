@@ -15,6 +15,7 @@ import java.util.Map;
 
 import org.cytoscape.d3.internal.serializer.D3jsModule;
 import org.cytoscape.d3.internal.writer.D3NetworkViewWriter;
+import org.cytoscape.d3.internal.writer.D3NetworkWriter;
 import org.cytoscape.ding.NetworkViewTestSupport;
 import org.cytoscape.model.CyEdge;
 import org.cytoscape.model.CyNetwork;
@@ -119,6 +120,20 @@ public class D3WriterTest {
 		readAndTest(temp, view.getModel());
 		os.close();
 		
+	}
+	
+	@Test
+	public void testWriter() throws Exception {
+		final ObjectMapper jsMapper = new ObjectMapper();
+		jsMapper.registerModule(new D3jsModule());
+
+		File temp = new File("target/d3Network1.json");
+		OutputStream os = new FileOutputStream(temp);
+		final D3NetworkWriter writer = new D3NetworkWriter(os, view.getModel(), jsMapper);
+		writer.run(tm);
+
+		readAndTest(temp, view.getModel());
+		os.close();
 	}
 
 
