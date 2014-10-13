@@ -12,8 +12,8 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 public class D3CyNetworkSerializer extends JsonSerializer<CyNetwork> {
 
 	@Override
-	public void serialize(final CyNetwork network, JsonGenerator jgen, SerializerProvider provider)
-			throws IOException, JsonProcessingException {
+	public void serialize(final CyNetwork network, JsonGenerator jgen, SerializerProvider provider) throws IOException,
+			JsonProcessingException {
 		final D3JsonBuilder builder = new D3JsonBuilder();
 		builder.serializeNetwork(network, null, jgen, provider);
 	}
@@ -22,5 +22,4 @@ public class D3CyNetworkSerializer extends JsonSerializer<CyNetwork> {
 	public Class<CyNetwork> handledType() {
 		return CyNetwork.class;
 	}
-
 }
