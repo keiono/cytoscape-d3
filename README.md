@@ -28,7 +28,7 @@ Currently, this App supports:
 #### From App Store
 1. Open __*Apps &rarr; App Manager*__
 1. Select D3.js Exporter and click _Install_
-
+1. Restart Cytoscape
 
 #### From Source
 Minimum requirment to build this app is JDK 6 and Maven 3.
